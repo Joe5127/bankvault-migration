@@ -25,7 +25,6 @@ sources:
               - accepted_values:
                   arguments:
                     values: ['Y', 'N']
-
       - name: accounts
         description: Raw accounts data
         columns:
@@ -41,7 +40,6 @@ sources:
               - accepted_values:
                   arguments:
                     values: ['Active', 'Dormant', 'Closed']
-
       - name: transactions
         description: Raw transactions data
         columns:
@@ -62,7 +60,6 @@ sources:
               - accepted_values:
                   arguments:
                     values: ['Success', 'Failed', 'Pending']
-
       - name: loans
         description: Raw loans data
         columns:
@@ -73,9 +70,3 @@ sources:
           - name: customer_id
             tests:
               - not_null
-      - name: accounts
-        description: Raw accounts data
-      - name: transactions
-        description: Raw transactions data
-      - name: loans
-        description: Raw loans data
