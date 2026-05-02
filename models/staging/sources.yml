@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: raw
+    database: BANK_DW
+    schema: RAW
+    tables:
+      - name: customers
+        description: Raw customer data
+      - name: accounts
+        description: Raw accounts data
+      - name: transactions
+        description: Raw transactions data
+      - name: loans
+        description: Raw loans data
