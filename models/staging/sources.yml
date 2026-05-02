@@ -1,0 +1,75 @@
+version: 2
+
+sources:
+  - name: raw
+    database: BANK_DW
+    schema: RAW
+    tables:
+      - name: customers
+        description: Raw customer data
+        columns:
+          - name: customer_id
+            tests:
+              - not_null
+              - unique
+          - name: email
+            tests:
+              - not_null
+          - name: gender
+            tests:
+              - accepted_values:
+                  arguments:
+                    values: ['Male', 'Female']
+          - name: is_active
+            tests:
+              - accepted_values:
+                  arguments:
+                    values: ['Y', 'N']
+
+      - name: accounts
+        description: Raw accounts data
+        columns:
+          - name: account_id
+            tests:
+              - not_null
+              - unique
+          - name: customer_id
+            tests:
+              - not_null
+          - name: status
+            tests:
+              - accepted_values:
+                  arguments:
+                    values: ['Active', 'Dormant', 'Closed']
+
+      - name: transactions
+        description: Raw transactions data
+        columns:
+          - name: transaction_id
+            tests:
+              - not_null
+              - unique
+          - name: account_id
+            tests:
+              - not_null
+          - name: transaction_type
+            tests:
+              - accepted_values:
+                  arguments:
+                    values: ['Credit', 'Debit']
+          - name: status
+            tests:
+              - accepted_values:
+                  arguments:
+                    values: ['Success', 'Failed', 'Pending']
+
+      - name: loans
+        description: Raw loans data
+        columns:
+          - name: loan_id
+            tests:
+              - not_null
+              - unique
+          - name: customer_id
+            tests:
+              - not_null
