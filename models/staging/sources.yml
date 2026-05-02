@@ -73,3 +73,9 @@ sources:
           - name: customer_id
             tests:
               - not_null
+      - name: accounts
+        description: Raw accounts data
+      - name: transactions
+        description: Raw transactions data
+      - name: loans
+        description: Raw loans data
